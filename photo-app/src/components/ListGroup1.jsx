@@ -1,16 +1,17 @@
 import { ListGroupItem } from "reactstrap";
 import { Link } from 'react-router-dom';
+import './photo-app.css';
 
 const ListGroup1 = ({title,id}) => {
 
     return(
 
-        <ListGroupItem
+        <ListGroupItem 
             action
             href="#"
             tag="a"
         >
-            <Link to = {`/album/${id}`}>{title}</Link>
+            <Link to = {`/album/${id}`} className="link" style={{color:"black"}}>{title}</Link>
         </ListGroupItem>
     )
 }

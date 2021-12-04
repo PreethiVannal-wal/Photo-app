@@ -3,7 +3,7 @@ const Photo = ({title, thumbnailUrl, onImageClick, url}) => {
 
     return (
             <Col xs="3">
-                    <Card>
+                    <Card className="photo-card">
                         <CardImg
                             alt="poster-img"
                             src={thumbnailUrl}

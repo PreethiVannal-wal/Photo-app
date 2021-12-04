@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {Modal, ModalHeader, ModalBody, Button} from 'reactstrap';
+import './photo-app.css';
 const FormModal = ({onClosingModal}) => {
     const [inputs, setInputs] = useState({});
     const [enable, setEnable] = useState(true);
@@ -37,19 +38,23 @@ const FormModal = ({onClosingModal}) => {
 
     return(
         <Modal isOpen>
-            <ModalHeader>Form</ModalHeader>
+            <ModalHeader className="form-heading">Form</ModalHeader>
             <ModalBody>
                 <form onSubmit={postData}>
-                    <label>Enter a title
-                        <input type="text" name="yourTitle" value={inputs.yourTitle || ""} onChange={handleChange}/>
-                    </label>
-                    <label>Enter a url
-                        <input type="text" name="url" value={inputs.url || ""} onChange={handleChange} />
-                    </label>
-                    <label>Enter a thumbnailUrl
-                        <input type="text" name="thumbnailUrl" value={inputs.thumbnailUrl || ""} onChange={handleChange}/>
-                    </label>
-                    <Button disabled={enable}>Save</Button>
+                    <div className="inputs">
+                        <label>Enter a title
+                            <input type="text" name="yourTitle" value={inputs.yourTitle || ""} onChange={handleChange}/>
+                        </label>
+                        <label>Enter a url
+                            <input type="text" name="url" value={inputs.url || ""} onChange={handleChange} />
+                        </label>
+                        <label>Enter a thumbnailUrl
+                            <input type="text" name="thumbnailUrl" value={inputs.thumbnailUrl || ""} onChange={handleChange}/>
+                        </label>
+                    </div>
+                    <div className="new-photo-parent">
+                        <Button disabled={enable} className="new-photo">Save</Button>
+                    </div>
                 </form>
             </ModalBody>
         </Modal>

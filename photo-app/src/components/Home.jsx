@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {ListGroup} from 'reactstrap';
 import ListGroup1 from "./ListGroup1";
+import './photo-app.css';
 
 const Home = () => {
     const [albums, setAlbums] = useState([]);
@@ -11,10 +12,10 @@ const Home = () => {
         .then((albums) => setAlbums(albums))
     });
     return ( 
-        <ListGroup>
+        <ListGroup className="list-group">
             {albums.map(({title,id}) => {
                 return (
-                    <ListGroup1
+                    <ListGroup1 
                         title ={title}
                         id = {id}
                     ></ListGroup1>

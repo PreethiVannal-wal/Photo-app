@@ -5,6 +5,7 @@ import Photo from './Photo';
 import ImagePreview from './ImagePreview';
 import FormModal from './FormModal';
 import { useParams } from 'react-router';
+import './photo-app.css';
 const Photos = ({id1}) => {
     const [posters, setPosters] = useState([]);
     const [pages, setPages] = useState(1);
@@ -41,7 +42,9 @@ const Photos = ({id1}) => {
     return(
         <>
         <Container>
-            <button onClick={()=> handleFormModal(true)}>New Photo </button>
+            <div className="new-photo-parent">
+                <button className="new-photo" onClick={()=> handleFormModal(true)}>New Photo </button>
+            </div>
             {isFormOpenModal && (
                 <FormModal
                     onClosingModal={()=>handleFormModal(false)}
@@ -74,58 +77,60 @@ const Photos = ({id1}) => {
                 }
             </Row>
         </Container> 
-        <Pagination aria-label="Page navigation example">
-            <PaginationItem>
-                <PaginationLink
-                    onClick={() => setPages(pages-1)}
-                    href="#"
-                >Previous</PaginationLink>
-            </PaginationItem>
-            <PaginationItem active>
-                <PaginationLink
-                    href="#"
-                >
-                    1
-                </PaginationLink>
-            </PaginationItem>
-            <PaginationItem >
-                <PaginationLink
-                    href="#"
-                    onClick = {() => setPages(2)}>
-                    2
-                </PaginationLink>
-            </PaginationItem>
-            <PaginationItem >
-                <PaginationLink
-                    href="#"
-                    onClick = {() => setPages(3)}>
-                    3
-                </PaginationLink>
-            </PaginationItem>
-            <PaginationItem >
-                <PaginationLink
-                    href="#"
-                    onClick = {() => setPages(4)}>
-                    4
-                </PaginationLink>
-            </PaginationItem>
-            <PaginationItem >
-                <PaginationLink
-                    href="#"
-                    onClick = {() => setPages(5)}>
-                    5
-                </PaginationLink>
-            </PaginationItem>
-            <PaginationItem >
-                <PaginationLink
-                    href="#"
-                    onClick = {() => {
-                        setPages(pages+1)
-                    }}>
-                    next
-                </PaginationLink>
-            </PaginationItem>
-        </Pagination>
+        <div className="pagination">
+            <Pagination aria-label="Page navigation example">
+                <PaginationItem>
+                    <PaginationLink
+                        onClick={() => setPages(pages-1)}
+                        href="#"
+                    >Previous</PaginationLink>
+                </PaginationItem>
+                <PaginationItem active>
+                    <PaginationLink
+                        href="#"
+                    >
+                        1
+                    </PaginationLink>
+                </PaginationItem>
+                <PaginationItem >
+                    <PaginationLink
+                        href="#"
+                        onClick = {() => setPages(2)}>
+                        2
+                    </PaginationLink>
+                </PaginationItem>
+                <PaginationItem >
+                    <PaginationLink
+                        href="#"
+                        onClick = {() => setPages(3)}>
+                        3
+                    </PaginationLink>
+                </PaginationItem>
+                <PaginationItem >
+                    <PaginationLink
+                        href="#"
+                        onClick = {() => setPages(4)}>
+                        4
+                    </PaginationLink>
+                </PaginationItem>
+                <PaginationItem >
+                    <PaginationLink
+                        href="#"
+                        onClick = {() => setPages(5)}>
+                        5
+                    </PaginationLink>
+                </PaginationItem>
+                <PaginationItem >
+                    <PaginationLink
+                        href="#"
+                        onClick = {() => {
+                            setPages(pages+1)
+                        }}>
+                        next
+                    </PaginationLink>
+                </PaginationItem>
+            </Pagination>
+        </div>
     </>
     )
 }
