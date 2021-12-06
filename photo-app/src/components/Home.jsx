@@ -2,15 +2,11 @@ import { useState, useEffect } from "react";
 import {ListGroup} from 'reactstrap';
 import ListGroup1 from "./ListGroup1";
 import './photo-app.css';
+import useFetch from "./useFetch";
 
 const Home = () => {
-    const [albums, setAlbums] = useState([]);
-
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users/1/albums')
-        .then((Response) => Response.json())
-        .then((albums) => setAlbums(albums))
-    });
+    const [albums] = useFetch("https://jsonplaceholder.typicode.com/users/1/albums");
+    
     return ( 
         <ListGroup className="list-group">
             {albums.map(({title,id}) => {
