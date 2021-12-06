@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {ListGroup} from 'reactstrap';
 import ListGroup1 from "./ListGroup1";
 import './photo-app.css';
